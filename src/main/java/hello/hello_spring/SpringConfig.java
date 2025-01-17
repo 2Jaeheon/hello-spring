@@ -1,6 +1,7 @@
 package hello.hello_spring;
 
 import hello.hello_spring.repository.JdbcMemberRepository;
+import hello.hello_spring.repository.JdbcTemplateMemberRepository;
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
 import hello.hello_spring.service.MemberService;
@@ -34,6 +35,7 @@ public class SpringConfig {
     // MemberRepository 인터페이스를 그대로 두고 구현체만 바꿔 끼워넣을 수 있었음.
     // 이것이 다형성을 활용한 객체 지향 설계의 장점
     public MemberRepository memberRepository() {
-        return new JdbcMemberRepository(dataSource);
+        // return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
